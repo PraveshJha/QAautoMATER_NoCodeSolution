@@ -76,7 +76,7 @@ npm install
 
 ```bash
 cd ..
-pm start ecosystem.config.js
+pm2 start ecosystem.config.js
 ```
 
 ### Access QAautoMATER
@@ -106,9 +106,10 @@ https://<server-ip>:<PORT>
 
 ## 5️⃣ SSL Certificate Notes
 
-* SSL is handled by the backend (`server.js`)
-* Browsers may show a warning if using a self-signed certificate
-* Optionally, install the certificate in the trusted store or replace it with a corporate certificate
+* QAautoMATER supports HTTPS via the backend (`server.js`).
+* Browsers may show warnings if using a self-signed certificate.
+* To enable HTTPS properly, provide your own certificate and private key files. You can use either a `.crt` file with a corresponding private key or a `.pfx` file with its passphrase in a `.txt` file.
+* Ensure that the filenames match the expected names (`qaautomater-cert.crt` / `qaautomater-cert.pfx` and `passphrase.txt`) and place them in the backend folder before starting the application.
 
 ---
 
@@ -119,10 +120,8 @@ https://<server-ip>:<PORT>
 * **Logs grow too large:** Install PM2 log rotation:
 
 ```bash
-pm2 install pm2-logrotate
-pm2 set pm2-logrotate:max_size 10M
-pm2 set pm2-logrotate:retain 7
-pm2 set pm2-logrotate:compress true
+pm2 logs
+
 ```
 
 ---
