@@ -32,92 +32,48 @@ Once the location is selected, all dependencies will be automatically downloaded
 
 ## 3️⃣ Setup Option 2 (Using Git Clone or Existing Folder Structure)
 
-Client will receive a folder named `QAautoMATER_OnPremSolution`:
+Clone the QAautoMATER repository. After cloning, you will get the following folder structure:
 
-```
-QAautoMATER_OnPremSolution
+QAautoMATER
 ├── ui
-│   └── build             # React production build
+│ └── build # React production build
 ├── backend
-│   ├── server.js          # Compiled backend
-│   ├── package.json       # Runtime dependencies only
-│   ├── routes/            # Compiled backend routes
-│   ├── qaautomater-cert.pfx
-│   └── passphrase.txt     # Optional
-├── dataHub               # Static files required by backend; keep at root
-└── ecosystem.config.js    # PM2 configuration
-```
+│ ├── server.js # Compiled backend
+│ ├── package.json # Runtime dependencies only
+│ ├── routes/ # Compiled backend routes
+│ ├── qaautomater-cert.pfx or qaautomater-cert.crt
+│ └── passphrase.txt or qaautomater.com_key.txt # Optional
+├── dataHub # Static files required by backend; keep at root
+└── ecosystem.config.js # PM2 configuration
 
-**Important Notes:**
 
-* The `dataHub` folder must remain at the **root level**, alongside `ui` and `backend`.
-* Do **NOT** rename or move any folders.
-* Port can be changed by editing the `PORT` variable in `ecosystem.config.js`.
+## Install Dependencies
 
----
-
-## 3️⃣ Install Backend Dependencies
-
-From the backend folder:
+From the backend folder, run:
 
 ```bash
-cd QAautoMATER_OnPremSolution/backend
+cd QAautoMATER/backend
 npm install
-```
 
-* Installs runtime dependencies. Only needed again if a new backend build is provided.
+## **Start QAautoMATER Using PM2**
 
----
+Start QAautoMATER Using PM2
 
-## 4️⃣ Configure Port (Optional)
+If you want to change the application port, open ecosystem.config.js and update the port value before starting.
 
-* Open `ecosystem.config.js`
-* Update `PORT` if client wants a different port:
+Then, go back to the root folder and start QAautoMATER using PM2:
 
-```js
-env: {
-  NODE_ENV: "production",
-  PORT: 3001 // change as needed
-}
-```
-
-* No changes are needed in backend code; `server.js` reads the port dynamically.
-
----
-
-## 5️⃣ Start QAautoMATER Using PM2
-
-Go back to the root folder:
-
-```bash
 cd ..
-pm install -g pm2
 pm2 start ecosystem.config.js
-pm2 save
-```
 
-**Notes:**
-
-* `pm2 save` stores the process list for auto-restart.
-* On Windows, **`pm2 startup` is optional** — use Task Scheduler with `pm2 resurrect` if auto-start is required.
-* On Linux, you can run `pm2 startup` to configure auto-start on reboot.
-
----
-
-## 6️⃣ Access QAautoMATER
-
-Open a browser:
-
-```
+Access QAautoMATER
+Open a web browser and go to:
 https://<server-ip>:<PORT>
-```
-
 Examples:
 
-* `https://localhost:3001`
-* `https://qaautomater.company.com:3001`
+https://localhost:3001
 
-> The port should match the value in `ecosystem.config.js`.
+https://qaautomater.company.com:3001
 
 ---
 
