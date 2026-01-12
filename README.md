@@ -1,23 +1,22 @@
-# QAautoMATER_NoCodeSolution
+# About QAautoMATER
 
 QAautoMATER is an AI-powered, scriptless test automation and test management platform designed to simplify and accelerate end-to-end quality assurance for modern software teams.
 It is built to help teams move away from manual spreadsheets and complex automation frameworks, offering a single, unified solution for test case management, execution, defect tracking, and automation for Web, mobile and API.
 
-# QAautoMATER On-Prem Solution
+# QAautoMATER On-Prem Solution Setup guide
 
 This guide explains how to install, start, and manage **QAautoMATER** on-premises using the provided compiled backend and frontend.
 
 ---
-
 ## 1️⃣ System Requirements
 
-* **Node.js v18+** (LTS recommended)
+* **Node.js v18-20**
 * **PM2** (process manager)
-* One open port (default **3001**, can be changed by client)
-* Windows or Linux machine
 
-### Install PM2 (one-time)
+### Install System Requirment
 
+**** NodeJS -- https://nodejs.org/en/download
+*** pm2 install
 ```bash
 npm install -g pm2
 ```
