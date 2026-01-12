@@ -8,20 +8,12 @@ It is built to help teams move away from manual spreadsheets and complex automat
 This guide explains how to install, start, and manage **QAautoMATER** on-premises using the provided compiled backend and frontend.
 
 ---
+
 ## 1️⃣ System Requirements
 
-* **Node.js v18-20**
-* **PM2** (process manager)
+* **Node.js v18-20** — [Download & Install](https://nodejs.org/en/download) using your system installer  
+* **PM2** (Process Manager) — Install via npm: `npm install -g pm2`
 
-### Install System Requirment
-
-**** NodeJS -- https://nodejs.org/en/download
-*** pm2 install
-```bash
-npm install -g pm2
-```
-
----
 
 ## 2️⃣ Folder Structure
 
