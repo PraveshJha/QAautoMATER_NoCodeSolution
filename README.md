@@ -17,10 +17,12 @@ This guide explains how to install, start, and manage **QAautoMATER** on-premise
 ## 2️⃣ Setup Option 1 (Using Direct Installer)
 
 This repository includes an installer file that installs and starts QAautoMATER.  
-Once you double-click the installer, you will see the following screen:  
+Once you double-click the installer, you will see the following screen:
+
 <img width="626" height="483" alt="Installer Screen" src="https://github.com/user-attachments/assets/24e9ee1b-f667-4ddf-86f7-4ede43137508" />
 
 After the installation is complete, you will see the follow-up screen:  
+
 <img width="1098" height="792" alt="Post-Installation Screen" src="https://github.com/user-attachments/assets/33958f44-7b4f-46f5-8665-a0679f342f3f" />
 
 Here, you can select the **installation location** and **application port**.  
