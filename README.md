@@ -14,8 +14,23 @@ This guide explains how to install, start, and manage **QAautoMATER** on-premise
 * **Node.js v18-20** — [Download & Install](https://nodejs.org/en/download) using your system installer  
 * **PM2** (Process Manager) — Install via npm: `npm install -g pm2`
 
+## 2️⃣ Setup Option 1 (Using Direct Installer)
 
-## 2️⃣ Folder Structure
+This repository includes an installer file that installs and starts QAautoMATER.  
+Once you double-click the installer, you will see the following screen:
+
+<img width="626" height="483" alt="Installer Screen" src="https://github.com/user-attachments/assets/24e9ee1b-f667-4ddf-86f7-4ede43137508" />
+
+After the installation is complete, you will see the follow-up screen:  
+
+<img width="1098" height="792" alt="Post-Installation Screen" src="https://github.com/user-attachments/assets/33958f44-7b4f-46f5-8665-a0679f342f3f" />
+
+Here, you can select the **installation location** and **application port**.  
+Choose a location where the QAautoMATER repository will be created and where all data will be stored. We recommend creating a **new folder** on any drive for installation. You can also specify a custom application port if required.  
+
+Once the location is selected, all dependencies will be automatically downloaded, and QAautoMATER will launch on the specified port.
+
+## 3️⃣ Setup Option 2 (Using Git Clone or Existing Folder Structure)
 
 Client will receive a folder named `QAautoMATER_OnPremSolution`:
 
