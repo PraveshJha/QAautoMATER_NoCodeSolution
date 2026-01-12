@@ -96,18 +96,11 @@ https://<server-ip>:<PORT>
 
 ## 4️⃣ Managing QAautoMATER with PM2
 
-| Action              | Command                            |
-| ------------------- | ---------------------------------- |
-| Start app           | `pm2 start QAautoMATER`            |
-| Stop app            | `pm2 stop QAautoMATER`             |
-| Stop all apps       | `pm2 stop all`                     |
-| Restart app         | `pm2 restart QAautoMATER`          |
-| Restart all apps    | `pm2 restart all`                  |
-| Remove app          | `pm2 delete QAautoMATER`           |
-| Remove all apps     | `pm2 delete all`                   |
-| View logs           | `pm2 logs QAautoMATER`             |
-| View last 100 lines | `pm2 logs QAautoMATER --lines 100` |
-| View status         | `pm2 status`                       |
+| Action    | Command                         |
+| --------- | ------------------------------- |
+| Start app | `pm2 start ecosystem.config.js` |
+| Stop app  | `pm2 stop ecosystem.config.js`  |
+| View logs | `pm2 logs ecosystem.config.js`  |
 
 ---
 
@@ -158,4 +151,4 @@ pm2 start ecosystem.config.js
 
 ---
 
-> QAautoMATER provides a streamlined, enterprise-ready solution for managing test cases, executing scripts, and tracking defects—all from a single,
+> QAautoMATER provides a streamlined, enterprise-ready solution for managing test cases, executing scripts, and tracking defects—all from a single, on-premises platform.
