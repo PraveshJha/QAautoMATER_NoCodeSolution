@@ -122,13 +122,8 @@ pm2 set pm2-logrotate:compress true
 1. Stop PM2:
 
 ```bash
-pm2 stop QAautoMATER
+pm2 delete ecosystem.config.js
 ```
-
-2. Replace `ui/build` if frontend is updated
-3. Replace `backend` folder if backend is updated
-4. Install runtime dependencies:
-
 ```bash
 cd backend
 npm install
@@ -138,16 +133,9 @@ cd ..
 5. Restart:
 
 ```bash
-pm2 restart QAautoMATER
+pm2 start ecosystem.config.js
 ```
 
 ---
 
-## ✅ Summary
-
-* Single command installation
-* Dynamic port configurable via `ecosystem.config.js`
-* Relative API calls in frontend (no CORS issues)
-* `dataHub` required at root level
-* PM2 ensures auto-restart, log management, and monitoring
 
