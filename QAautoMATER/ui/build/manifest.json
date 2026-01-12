@@ -1,0 +1,24 @@
+{
+  "short_name": "QAautoMATER",
+  "name": "The platform is an AI-driven, nocode or codeless testing solution, offering comprehensive test case management, defect management, and automation testing for web, mobile, and API applications. As a one-stop solution, it guarantees to reduce QA operational costs by 60-70%. It takes manual test cases as input and generates automation scripts with just one click.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "QAautoMATER.PNG",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "QAautoMATER.PNG",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
