@@ -1,83 +1,100 @@
-# About QAautoMATER
+# QAautoMATER On-Premises Setup Guide
 
-QAautoMATER is an AI-powered, scriptless test automation and test management platform designed to simplify and accelerate end-to-end quality assurance for modern software teams.
-It is built to help teams move away from manual spreadsheets and complex automation frameworks, offering a single, unified solution for test case management, execution, defect tracking, and automation for Web, mobile and API.
+**QAautoMATER** is an AI-powered, scriptless test automation and test management platform designed to simplify and accelerate end-to-end quality assurance for modern software teams. It helps teams move away from manual spreadsheets and complex automation frameworks by providing a single, unified solution for:
 
-# QAautoMATER On-Prem Solution Setup guide
+* Test case management
+* Test execution
+* Defect tracking
+* Automation for Web, Mobile, and API
 
-This guide explains how to install, start, and manage **QAautoMATER** on-premises using the provided compiled backend and frontend.
+This guide explains how to install, start, and manage QAautoMATER on-premises using the provided compiled backend and frontend.
 
 ---
 
 ## 1️⃣ System Requirements
 
-* **Node.js v18-20** — [Download & Install](https://nodejs.org/en/download) using your system installer  
-* **PM2** (Process Manager) — Install via npm: `npm install -g pm2`
+* **Node.js v18–20** — [Download & Install](https://nodejs.org/en/download) using your system installer
+* **PM2 (Process Manager)** — Install globally via npm:
 
-## 2️⃣ Setup Option 1 (Using Direct Installer)
+```bash
+npm install -g pm2
+```
 
-This repository includes an installer file that installs and starts QAautoMATER.  
-Once you double-click the installer, you will see the following screen:
+---
+
+## 2️⃣ Setup Option 1: Using Direct Installer
+
+The repository includes an installer that automatically installs and starts QAautoMATER.
+
+1. Run the installer by double-clicking it. You will see the following screen:
 
 <img width="626" height="483" alt="Installer Screen" src="https://github.com/user-attachments/assets/24e9ee1b-f667-4ddf-86f7-4ede43137508" />
 
-After the installation is complete, you will see the follow-up screen:  
+2. After installation, you will see the follow-up screen:
 
 <img width="1098" height="792" alt="Post-Installation Screen" src="https://github.com/user-attachments/assets/33958f44-7b4f-46f5-8665-a0679f342f3f" />
 
-Here, you can select the **installation location** and **application port**.  
-Choose a location where the QAautoMATER repository will be created and where all data will be stored. We recommend creating a **new folder** on any drive for installation. You can also specify a custom application port if required.  
+Here, you can:
 
-Once the location is selected, all dependencies will be automatically downloaded, and QAautoMATER will launch on the specified port.
+* Select the **installation location** (choose a new folder for repository and data storage)
+* Specify the **application port** (optional)
 
-## 3️⃣ Setup Option 2 (Using Git Clone or Existing Folder Structure)
+All dependencies will be automatically downloaded, and QAautoMATER will launch on the selected port.
 
-Clone the QAautoMATER repository. After cloning, you will get the following folder structure:
+---
 
+## 3️⃣ Setup Option 2: Using Git Clone or Existing Folder Structure
+
+Clone the QAautoMATER repository. After cloning, you will get the following structure:
+
+```
 QAautoMATER
 ├── ui
-│ └── build # React production build
+│   └── build               # React production build
 ├── backend
-│ ├── server.js # Compiled backend
-│ ├── package.json # Runtime dependencies only
-│ ├── routes/ # Compiled backend routes
-│ ├── qaautomater-cert.pfx or qaautomater-cert.crt
-│ └── passphrase.txt or qaautomater.com_key.txt # Optional
-├── dataHub # Static files required by backend; keep at root
-└── ecosystem.config.js # PM2 configuration
+│   ├── server.js           # Compiled backend
+│   ├── package.json        # Runtime dependencies only
+│   ├── routes/             # Compiled backend routes
+│   ├── qaautomater-cert.pfx or qaautomater-cert.crt
+│   └── passphrase.txt or qaautomater.com_key.txt  # Optional
+├── dataHub                 # Static files required by backend
+└── ecosystem.config.js     # PM2 configuration
+```
 
-
-## Install Dependencies
+### Install Dependencies
 
 From the backend folder, run:
 
 ```bash
 cd QAautoMATER/backend
 npm install
+```
 
-## **Start QAautoMATER Using PM2**
+### Start QAautoMATER Using PM2
 
-Start QAautoMATER Using PM2
+> **Note:** If you want to change the application port, update `ecosystem.config.js` before starting.
 
-If you want to change the application port, open ecosystem.config.js and update the port value before starting.
-
-Then, go back to the root folder and start QAautoMATER using PM2:
-
+```bash
 cd ..
-pm2 start ecosystem.config.js
+pm start ecosystem.config.js
+```
 
-Access QAautoMATER
-Open a web browser and go to:
+### Access QAautoMATER
+
+Open a browser and go to:
+
+```
 https://<server-ip>:<PORT>
-Examples:
+```
 
-https://localhost:3001
+**Examples:**
 
-https://qaautomater.company.com:3001
+* `https://localhost:3001`
+* `https://qaautomater.company.com:3001`
 
 ---
 
-## 7️⃣ Managing QAautoMATER
+## 4️⃣ Managing QAautoMATER with PM2
 
 | Action              | Command                            |
 | ------------------- | ---------------------------------- |
@@ -87,26 +104,26 @@ https://qaautomater.company.com:3001
 | Restart app         | `pm2 restart QAautoMATER`          |
 | Restart all apps    | `pm2 restart all`                  |
 | Remove app          | `pm2 delete QAautoMATER`           |
-| Remove all          | `pm2 delete all`                   |
+| Remove all apps     | `pm2 delete all`                   |
 | View logs           | `pm2 logs QAautoMATER`             |
 | View last 100 lines | `pm2 logs QAautoMATER --lines 100` |
 | View status         | `pm2 status`                       |
 
 ---
 
-## 8️⃣ SSL Certificate Notes
+## 5️⃣ SSL Certificate Notes
 
 * SSL is handled by the backend (`server.js`)
-* Browser may show a warning if the certificate is self-signed
-* Optionally, client can install the certificate in the trusted store or replace it with a corporate certificate
+* Browsers may show a warning if using a self-signed certificate
+* Optionally, install the certificate in the trusted store or replace it with a corporate certificate
 
 ---
 
-## 9️⃣ Troubleshooting
+## 6️⃣ Troubleshooting
 
-* **Cannot open UI:** Check PM2 status, ensure the port is open
-* **App stops after reboot:** Run `pm2 save` (Windows users may need Task Scheduler with `pm2 resurrect`)
-* **Logs grow too large:** Install PM2 log rotation
+* **Cannot open UI:** Check PM2 status and ensure the port is open
+* **App stops after reboot:** Run `pm2 save` (Windows users may also configure Task Scheduler with `pm2 resurrect`)
+* **Logs grow too large:** Install PM2 log rotation:
 
 ```bash
 pm2 install pm2-logrotate
@@ -117,20 +134,23 @@ pm2 set pm2-logrotate:compress true
 
 ---
 
-## 🔟 Upgrade Procedure (Future Releases)
+## 7️⃣ Upgrade Procedure (Future Releases)
 
 1. Stop PM2:
 
 ```bash
 pm2 delete ecosystem.config.js
 ```
+
+2. Update backend dependencies:
+
 ```bash
 cd backend
 npm install
 cd ..
 ```
 
-5. Restart:
+3. Restart QAautoMATER:
 
 ```bash
 pm2 start ecosystem.config.js
@@ -138,4 +158,4 @@ pm2 start ecosystem.config.js
 
 ---
 
-
+> QAautoMATER provides a streamlined, enterprise-ready solution for managing test cases, executing scripts, and tracking defects—all from a single,
